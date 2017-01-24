@@ -36,7 +36,7 @@
             @Html.Partial("_LoginPartial")
         </div>
     </div>
-    @if (User.Identity.IsAuthenticated)
+    @*@if (User.Identity.IsAuthenticated)
     {
         <div class="container sidebar-container">
             <div class="side-bar navbar-inverse">
@@ -54,7 +54,8 @@
     else
     {
         @RenderBody()
-    }
+    }*@
+    @RenderBody()
     <div class="foot-content">
         <hr />
         <footer>

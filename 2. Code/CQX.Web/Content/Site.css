@@ -3,12 +3,17 @@
     padding-bottom: 20px;
 }
 
-.foot-content{
-    text-align:center;
-    position:fixed;
-    left:100px;
-    bottom:10px;
-    width:100%;
+.foot-content {
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+@media screen and (max-height: 300px) {
+    .foot-content {
+        display:none;
+    }
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -43,12 +48,35 @@ input[type="checkbox"].input-validation-error {
     display: none;
 }
 
-.sidebar-container{
-    margin-left:0;
-    padding-left:0;
+.login-box {
+    margin-left: auto;
+    margin-right: auto;
 }
-.side-bar{
-    position:fixed;
-    height:100%;
-    width:100px;
+
+    .login-box input[type=submit] {
+        width: 80px;
+    }
+
+@media screen and (min-width: 320px) {
+    .login-box {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .login-box {
+        width: 200px;
+    }
+}
+
+/*sidebar*/
+.sidebar-container {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.side-bar {
+    position: fixed;
+    height: 100%;
+    width: 100px;
 }
