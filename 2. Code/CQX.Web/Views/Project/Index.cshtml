@@ -1,0 +1,38 @@
+﻿@using CQX.Web.Models
+@model List<ProjectViewModel>
+@{
+    ViewBag.Title = "项目管理";
+}
+<table class="table table-responsive table-bordered table-hover">
+    <tr>
+        <th>序号</th>
+        <th>项目名称</th>
+        <th>开始日期</th>
+        <th>合作单位</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+    {
+        <tr>
+            <td colspan="7"><p class="text-warning">@ViewBag.ErrorMessage</p></td>
+        </tr>
+    }
+    else
+    {
+        foreach (var p in Model)
+        {
+            <tr>
+                <td>@p.Project.Id</td>
+                <td>@p.Project.Name</td>
+                <td>@(p.Project.StartDate != null ? p.Project.StartDate.Value.ToString("yyyy/MM/dd") : "--")</td>
+                <td>@p.Project.Cooperator</td>
+                <td class="@p.StatusClass">@p.StatusDescription</td>
+                <td>@Html.ActionLink("详情", "Detail", new { id = p.Project.Id }, new { target = "project_detail" })</td>
+            </tr>
+        }
+    }
+</table>
+<div class="pull-right">
+    @Html.Partial("_Pagination")
+</div>

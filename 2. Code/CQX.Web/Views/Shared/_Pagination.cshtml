@@ -1,0 +1,23 @@
+﻿<ul class="pagination">
+    @{
+        if (ViewBag.TotalPages != null)
+        {
+            int total = (int)ViewBag.TotalPages;
+            if (total >= 2)
+            {
+                int current;
+                int.TryParse(Request.Params["page"], out current);
+                if (current < 1)
+                {
+                    current = 1;
+                }
+                for (int i = 1; i <= total; i++)
+                {
+                    <li class="@(i==current?"active":"")">
+                        <a href="@Url.ChangeQueryValue(Request.Url, "page", i)">@i</a>
+                    </li>
+                }
+            }
+        }
+    }
+</ul>

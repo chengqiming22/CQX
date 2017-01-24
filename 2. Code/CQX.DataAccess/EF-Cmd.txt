@@ -1,0 +1,2 @@
+﻿add-migration InitialCreate -force     //添加migration
+update-database    //将改变更新到数据库

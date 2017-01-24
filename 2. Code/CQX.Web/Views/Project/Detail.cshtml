@@ -1,0 +1,48 @@
+﻿@using CQX.Web.Models
+@model ProjectViewModel
+@{
+    ViewBag.Title = Model.Project.Name;
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">项目信息</h3>
+    </div>
+    <div class="panel-body list-group">
+        <div class="row list-group-item">
+            <div class="col-xs-4"><span>项目名称：@Model.Project.Name</span></div>
+            <div class="col-xs-4"><span>开始日期：@(Model.Project.StartDate!=null?Model.Project.StartDate.Value.ToString("yyyy/MM/dd"):"")</span></div>
+            <div class="col-xs-4"><span>合作单位：@Model.Project.Cooperator</span></div>
+        </div>
+        <div class="row list-group-item">
+            <div class="col-xs-4"><span class="@Model.StatusClass">状态：@Model.StatusDescription</span></div>
+            <div class="col-xs-8"><span>备注：@Model.Project.Remark</span></div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">项目进度</h3>
+    </div>
+    <div class="panel-body">
+        <div>
+            <!-- explanation -->
+            <div class="description">
+                <h4>STATE MACHINE</h4>
+                <p>Nodes are connected with the StateMachine connector.</p>
+                <p>
+                    Endpoints are located with 'Continuous' anchors, which are anchors whose location is calculated based on
+                    the location of all other connected elements, and which guarantee a unique endpoint per connection.
+                </p>
+                <p>
+                    Click and drag new Connections from the orange div in each element; the main elements in the UI are
+                    configured to be Connection targets. You can drag from one of these divs onto its parent element to
+                    create a 'loopback' connection. Each element supports up to 5 Connections.
+                </p>
+                <p>Click on a Connection to delete it.</p>
+                <p>Double click on whitespace to add a new node</p>
+            </div>
+            <!-- /explanation -->
+        </div>
+    </div>
+</div>
