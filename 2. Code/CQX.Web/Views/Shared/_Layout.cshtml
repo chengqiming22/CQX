@@ -1,5 +1,7 @@
-﻿@{
+﻿@using CQX.ServiceContract.Models
+@{
     string appName = "大榕树下";
+    List<ModuleModel> modules = ViewBag.Modules;
 }
 <!DOCTYPE html>
 <html>
@@ -7,31 +9,52 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@(ViewBag.Title==null?appName:string.Format("{0} - {1}",ViewBag.Title,appName))</title>
+    <title>@(ViewBag.Title == null ? appName : string.Format("{0} - {1}", ViewBag.Title, appName))</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink(appName, "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                @Html.Partial("_LoginPartial")
-            </div>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink(appName, "Index", "Home", null, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            @if (modules != null)
+            {
+                <ul class="nav navbar-nav">
+                    @foreach (var m in modules)
+                    {
+                        <li>@Html.ActionLink(m.Name, m.Action, m.Controller)</li>
+                    }
+                </ul>
+            }
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
-    @Html.Partial("_NavMenu")
-    
-    <div class="container body-content">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="container sidebar-container">
+            <div class="side-bar navbar-inverse">
+                <ul class="nav-stacked">
+                    <li><a href="#">应用列表</a></li>
+                    <li><a href="#">应用列表</a></li>
+                    <li><a href="#">应用列表</a></li>
+                </ul>
+            </div>
+            <div style="margin-left:120px;">
+                @RenderBody()
+            </div>
+        </div>
+    }
+    else
+    {
         @RenderBody()
-    </div>
+    }
     <div class="foot-content">
         <hr />
         <footer>

@@ -2,18 +2,13 @@
     padding-top: 50px;
     padding-bottom: 20px;
 }
-.menu-content{
-    margin-top:10px;
-}
-
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-top:50px;
-}
 
 .foot-content{
     text-align:center;
+    position:fixed;
+    left:100px;
+    bottom:10px;
+    width:100%;
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
@@ -46,4 +41,14 @@ input[type="checkbox"].input-validation-error {
 
 .validation-summary-valid {
     display: none;
+}
+
+.sidebar-container{
+    margin-left:0;
+    padding-left:0;
+}
+.side-bar{
+    position:fixed;
+    height:100%;
+    width:100px;
 }

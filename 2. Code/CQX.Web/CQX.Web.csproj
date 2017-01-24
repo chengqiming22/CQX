@@ -198,7 +198,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Project\Index.cshtml" />
     <Content Include="Views\Project\Detail.cshtml" />
-    <Content Include="Views\Shared\_NavMenu.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -206,6 +205,8 @@
     <Content Include="Views\Shared\_Pagination.cshtml" />
     <Content Include="Views\About\Index.cshtml" />
     <Content Include="Views\App\Index.cshtml" />
+    <Content Include="Views\Shared\_AppLayout.cshtml" />
+    <Content Include="Views\App\_ViewStart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CQX.DataModel.Enums\CQX.DataModel.Enums.csproj">
