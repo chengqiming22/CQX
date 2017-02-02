@@ -15,7 +15,7 @@ namespace CQX.ServiceClient.Clients
         static ServiceClientBase()
         {
             client.BaseAddress = new Uri(ConfigHelper.ServiceUrl);
-            client.Timeout = TimeSpan.FromSeconds(5);
+            client.Timeout = TimeSpan.FromSeconds(60);
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
